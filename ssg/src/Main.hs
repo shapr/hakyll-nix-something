@@ -26,7 +26,7 @@ mySiteName :: String
 mySiteName = "Shae Erisson"
 
 mySiteRoot :: String
-mySiteRoot = "https://my-site.com"
+mySiteRoot = "https://www.scannedinavian.com"
 
 myFeedTitle :: String
 myFeedTitle = "shapr's RSS feed"
@@ -89,6 +89,13 @@ main = hakyllWith config $ do
   match "css/*" $ do
     route idRoute
     compile compressCssCompiler
+
+  match (fromList ["about.rst", "contact.markdown"]) $
+        do
+          route   $ setExtension "html"
+          compile $ pandocCompiler
+                           >>= loadAndApplyTemplate "templates/default.html" defaultContext
+                           >>= relativizeUrls
 
   match "posts/*" $ do
     let ctx = constField "type" "article" <> postCtx
