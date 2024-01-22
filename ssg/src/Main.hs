@@ -155,7 +155,7 @@ main = hakyllWith config $ do
       makeItem ("" :: String)
         >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
 
-  create ["rss.xml"] $ do
+  create ["feed.rss"] $ do
     route idRoute
     compile (feedCompiler renderRss)
 
