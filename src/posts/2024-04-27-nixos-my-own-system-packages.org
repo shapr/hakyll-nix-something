@@ -77,3 +77,9 @@ but that failed, and I had to remove the nix store path directly:
 #+end_src
 
 That's good enough for now, hopefully I'll learn enough about overlays to make this a system package.
+
+* What's the conclusion?
+
+I updated [[https://github.com/shapr/bloohm/blob/main/flake.nix][bloohm]] to use Nix Flakes, and I published a [[https://hackage.haskell.org/package/bloohm][new version]] to the official Haskell repository!
+
+And there's something wrong with the build *grumble* I'll get back to that later.
